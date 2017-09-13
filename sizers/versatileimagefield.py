@@ -22,15 +22,10 @@ class FittedImage(SizedImage):
         Dimensions are `width`x`height`.
         """
         dimensions = (width, height)
-        imagefile = BytesIO()
         bgfile = BytesIO()
         image.thumbnail(
             (width, height),
             Image.ANTIALIAS
-        )
-        image.save(
-            imagefile,
-            **save_kwargs
         )
         if image.mode == 'RGBA':
             bg = Image.new('RGBA', dimensions)
